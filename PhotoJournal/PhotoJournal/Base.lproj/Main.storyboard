@@ -124,7 +124,7 @@
         <!--Editor View Controller-->
         <scene sceneID="oCi-8x-zZo">
             <objects>
-                <viewController id="W8e-zP-f6X" customClass="EditorViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editor" id="W8e-zP-f6X" customClass="EditorViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v8c-bj-1ah">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
