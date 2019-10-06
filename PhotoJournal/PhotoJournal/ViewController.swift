@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var photoJournals = [Journal](){
+        didSet {
+            self.photoCollection.reloadData()
+        
+        }
+    }
+    
     
     @IBOutlet weak var photoCollection: UICollectionView!
     
@@ -31,8 +38,6 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,3 +46,26 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photoJournals.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell
+            else {
+                return UICollectionViewCell()
+        }
+        let myPhotos = photoJournals[indexPath.row]
+        
+        cell.caption.text = myPhotos.caption
+        cell.date.text = myPhotos.timestamp
+        cell.collectionImage.image = UIImage(data: myPhotos.imageData)
+        
+        return cell
+    }
+    
+    
+
+}

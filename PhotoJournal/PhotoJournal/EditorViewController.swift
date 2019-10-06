@@ -10,6 +10,8 @@ import UIKit
 
 class EditorViewController: UIViewController {
     
+    var placeHolderText = ["Wubba lubba dub dub", "D'oh!", "It's XBox night", "How do you kill which has no life??"]
+    
     private var imagePickerController: UIImagePickerController!
     
     @IBOutlet weak var eVCImage: UIImageView!
@@ -31,15 +33,18 @@ class EditorViewController: UIViewController {
     @IBAction func eVCCamera(_ sender: Any) {
     }
     
+    @IBOutlet weak var eVCCamera: UIBarButtonItem!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        eVCTextView.delegate = self
         imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-       
+        if !UIImagePickerController.isSourceTypeAvailable(.camera){
+            eVCCamera.isEnabled = false
+        }
     }
 
 }
@@ -60,3 +65,13 @@ extension EditorViewController: UINavigationControllerDelegate, UIImagePickerCon
     }
 }
 
+
+
+extension EditorViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        eVCTextView.text = ""
+    }
+    
+    
+}

@@ -38,7 +38,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="imageCell" id="Oh6-WO-BKs" customClass="PhotoCell" customModule="PhotoJournal" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="imageCell" reuseIdentifier="photoCell" id="Oh6-WO-BKs" customClass="PhotoCell" customModule="PhotoJournal" customModuleProvider="target">
                                         <rect key="frame" x="33.5" y="0.0" width="347" height="503"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QQp-x5-agu">
@@ -181,6 +181,7 @@
                         <viewLayoutGuide key="safeArea" id="K4U-pU-f5e"/>
                     </view>
                     <connections>
+                        <outlet property="eVCCamera" destination="JQt-N9-rhq" id="msf-nG-IKV"/>
                         <outlet property="eVCImage" destination="Ed8-ZI-gsh" id="fg2-pW-Fj7"/>
                         <outlet property="eVCTextView" destination="IXy-5q-fGa" id="0CQ-Zl-bwc"/>
                     </connections>
