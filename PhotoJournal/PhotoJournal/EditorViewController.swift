@@ -9,7 +9,8 @@
 import UIKit
 
 class EditorViewController: UIViewController {
-
+    
+    private var imagePickerController: UIImagePickerController!
     
     @IBOutlet weak var eVCImage: UIImageView!
     
@@ -24,6 +25,7 @@ class EditorViewController: UIViewController {
     }
     
     @IBAction func eVCLibrary(_ sender: Any) {
+         present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func eVCCamera(_ sender: Any) {
@@ -35,10 +37,26 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+        imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+       
     }
-    
-
-    
 
 }
+
+extension EditorViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            eVCImage.image = selectedImage
+        } else {
+            print("No image found, NIL")
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+
