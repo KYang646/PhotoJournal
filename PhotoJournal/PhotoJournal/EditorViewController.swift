@@ -16,7 +16,10 @@ class EditorViewController: UIViewController {
     @IBOutlet weak var eVCTextView: UITextView!
     
     @IBAction func eVCCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
     }
+    
     @IBAction func eVCSave(_ sender: Any) {
     }
     
