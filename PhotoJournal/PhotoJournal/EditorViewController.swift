@@ -12,18 +12,38 @@ class EditorViewController: UIViewController {
     
     var placeHolderText = ["Wubba lubba dub dub", "D'oh!", "It's XBox night", "How do you kill which has no life??"]
     
+    var daPhoto: Journal?
+    var index: Int?
+    
+
+    
+    
     private var imagePickerController: UIImagePickerController!
     
     @IBOutlet weak var eVCImage: UIImageView!
-    
     @IBOutlet weak var eVCTextView: UITextView!
-    
     @IBAction func eVCCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func eVCSave(_ sender: Any) {
+        let date = Date()
+        let isoDateFormatter = ISO8601DateFormatter()
+        isoDateFormatter.formatOptions = [.withFullDate,
+                                          .withFullTime,
+                                          .withInternetDateTime,
+                                          .withTimeZone,
+                                          .withDashSeparatorInDate]
+        let timeStamp = isoDateFormatter.string(from: date)
+        
+        if let imageData = eVCImage.image?.jpegData(compressionQuality: 0.5){
+            let newPhoto = Journal.init(imageData: imageData, caption: eVCTextView.text, timestamp: timeStamp)
+            
+            try? PhotoPersistenceManager.manager.saveJournal(journal: newPhoto)
+            dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func eVCLibrary(_ sender: Any) {

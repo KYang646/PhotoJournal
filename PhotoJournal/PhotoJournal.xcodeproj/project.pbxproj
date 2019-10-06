@@ -10,6 +10,7 @@
 		7447D5B5234A6365004FDCD8 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447D5B4234A6365004FDCD8 /* EditorViewController.swift */; };
 		7447D5B7234A7A1B004FDCD8 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447D5B6234A7A1A004FDCD8 /* Journal.swift */; };
 		7447D5B9234A8551004FDCD8 /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447D5B8234A8551004FDCD8 /* PersistenceHelper.swift */; };
+		7447D5BD234A952A004FDCD8 /* PhotoPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447D5BC234A952A004FDCD8 /* PhotoPersistence.swift */; };
 		74B3CABB233EAED100C728FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3CABA233EAED100C728FE /* AppDelegate.swift */; };
 		74B3CABD233EAED100C728FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3CABC233EAED100C728FE /* SceneDelegate.swift */; };
 		74B3CABF233EAED100C728FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3CABE233EAED100C728FE /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		7447D5B4234A6365004FDCD8 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		7447D5B6234A7A1A004FDCD8 /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		7447D5B8234A8551004FDCD8 /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
+		7447D5BC234A952A004FDCD8 /* PhotoPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPersistence.swift; sourceTree = "<group>"; };
 		74B3CAB7233EAED100C728FE /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B3CABA233EAED100C728FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B3CABC233EAED100C728FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,9 +88,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7447D5BB234A949E004FDCD8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7447D5B8234A8551004FDCD8 /* PersistenceHelper.swift */,
+				7447D5BC234A952A004FDCD8 /* PhotoPersistence.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		74B3CAAE233EAED100C728FE = {
 			isa = PBXGroup;
 			children = (
+				7447D5BB234A949E004FDCD8 /* Helper */,
 				74B3CAEC233EB30E00C728FE /* photoCell.swift */,
 				74B3CAB9233EAED100C728FE /* PhotoJournal */,
 				74B3CAD0233EAED400C728FE /* PhotoJournalTests */,
@@ -113,7 +125,6 @@
 				74B3CABA233EAED100C728FE /* AppDelegate.swift */,
 				74B3CABC233EAED100C728FE /* SceneDelegate.swift */,
 				74B3CABE233EAED100C728FE /* ViewController.swift */,
-				7447D5B8234A8551004FDCD8 /* PersistenceHelper.swift */,
 				74B3CAEE233EB5B600C728FE /* PhotoCell.swift */,
 				74B3CAC0233EAED100C728FE /* Main.storyboard */,
 				7447D5B4234A6365004FDCD8 /* EditorViewController.swift */,
@@ -277,6 +288,7 @@
 				74B3CAED233EB30E00C728FE /* photoCell.swift in Sources */,
 				7447D5B5234A6365004FDCD8 /* EditorViewController.swift in Sources */,
 				74B3CAEF233EB5B600C728FE /* PhotoCell.swift in Sources */,
+				7447D5BD234A952A004FDCD8 /* PhotoPersistence.swift in Sources */,
 				74B3CABF233EAED100C728FE /* ViewController.swift in Sources */,
 				74B3CABB233EAED100C728FE /* AppDelegate.swift in Sources */,
 				7447D5B7234A7A1B004FDCD8 /* Journal.swift in Sources */,

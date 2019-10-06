@@ -13,8 +13,14 @@ class ViewController: UIViewController {
     var photoJournals = [Journal](){
         didSet {
             self.photoCollection.reloadData()
-        
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        photoCollection.delegate = self
+        photoCollection.dataSource = self
+        loadJournal()
     }
     
     
@@ -55,17 +61,25 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    private func loadJournal(){
+        do{
+            photoJournals = try PhotoPersistenceManager.manager.getJournal()
+        }catch{
+            print(error)
+        }
     }
+
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadJournal()
+    }
     
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(photoJournals.count)
         return photoJournals.count
     }
     
@@ -77,7 +91,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let myPhotos = photoJournals[indexPath.row]
         
         cell.caption.text = myPhotos.caption
+        print(myPhotos.caption)
         cell.date.text = myPhotos.timestamp
+        print(myPhotos.timestamp)
+        print()
         cell.collectionImage.image = UIImage(data: myPhotos.imageData)
         
         return cell
