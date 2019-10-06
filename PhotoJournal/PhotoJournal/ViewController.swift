@@ -22,6 +22,23 @@ class ViewController: UIViewController {
     
     
     @IBAction func optionClick(_ sender: Any) {
+        let daAlert = UIAlertController(title: "Options", message: "Please select an option", preferredStyle: .actionSheet)
+        
+        let edit = UIAlertAction(title: "Edit", style: .default) {_ in
+            
+        }
+        
+        let delete = UIAlertAction(title: "Delete", style: .destructive) {_ in
+            
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        daAlert.addAction(edit)
+        daAlert.addAction(delete)
+        daAlert.addAction(cancel)
+        present(daAlert, animated: true, completion: nil)
+        
     }
     
     

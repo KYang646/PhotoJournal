@@ -190,6 +190,27 @@
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="114.50892857142857"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="WJ6-ym-lQQ">
+            <objects>
+                <viewController id="1SP-0K-UA3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ROa-Z0-ihH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LgB-7Q-heq">
+                                <rect key="frame" x="245" y="186" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="0eB-NN-Oyb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXd-GB-Fni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029" y="781"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="64" height="48"/>
