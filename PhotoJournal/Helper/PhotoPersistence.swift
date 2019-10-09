@@ -21,4 +21,13 @@ struct PhotoPersistenceManager {
     func getJournal() throws -> [Journal] {
         return try persistenceHelper.getObjects()
     }
+    
+    
+    func deleteJournal(withID: Int) throws {
+        do {
+            let allJournalsBefore = try getJournal()
+            let allJournalsAfter = allJournalsBefore.filter { $0.id != withID}
+            try persistenceHelper.replace(elements: allJournalsAfter)
+        }
+    }
 }

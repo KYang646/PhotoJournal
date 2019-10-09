@@ -94,6 +94,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         print(myPhotos.caption)
         cell.date.text = myPhotos.timestamp
         print(myPhotos.timestamp)
+        print(myPhotos.id)
         print()
         cell.collectionImage.image = UIImage(data: myPhotos.imageData)
         

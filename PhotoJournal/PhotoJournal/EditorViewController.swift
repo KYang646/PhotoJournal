@@ -38,7 +38,9 @@ class EditorViewController: UIViewController {
         let timeStamp = isoDateFormatter.string(from: date)
         
         if let imageData = eVCImage.image?.jpegData(compressionQuality: 0.5){
-            let newPhoto = Journal.init(imageData: imageData, caption: eVCTextView.text, timestamp: timeStamp)
+//            let newPhoto = Journal.init(imageData: imageData, caption: eVCTextView.text, timestamp: timeStamp)
+            let newPhoto = Journal.init(imageData: imageData, caption: eVCTextView.text, timestamp: timeStamp, id: Journal.getIdForNewJournal())
+
             
             try? PhotoPersistenceManager.manager.saveJournal(journal: newPhoto)
             dismiss(animated: true, completion: nil)

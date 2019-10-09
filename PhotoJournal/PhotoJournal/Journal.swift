@@ -12,6 +12,7 @@ struct Journal: Codable {
     let imageData: Data
     let caption: String
     let timestamp: String
+    let id: Int
     
     public var dateFormattedString: String {
         let isDateFormatter = ISO8601DateFormatter()
@@ -31,5 +32,14 @@ struct Journal: Codable {
             formattedDate = date
         }
         return formattedDate
+    }
+    
+    static func getIdForNewJournal() -> Int {
+        var allPhotoJournals = [Journal]()
+        allPhotoJournals = try! PhotoPersistenceManager.manager.getJournal()
+        
+        let max = allPhotoJournals.map{$0.id}.max() ?? 0
+    
+        return max + 1
     }
 }
