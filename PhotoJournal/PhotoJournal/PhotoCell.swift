@@ -17,6 +17,7 @@ class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var date: UILabel!
     
+    @IBOutlet weak var optionButtonOutlet: UIButton!
     
     
 }

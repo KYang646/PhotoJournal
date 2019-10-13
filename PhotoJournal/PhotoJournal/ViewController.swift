@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var index = 0
+    
     var photoJournals = [Journal](){
         didSet {
             self.photoCollection.reloadData()
@@ -27,7 +29,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoCollection: UICollectionView!
     
     
-    @IBAction func optionClick(_ sender: UIButton) {
+    @IBAction func optionButtonPressed(_ sender: UIButton) {
+    
+        print("\(index) is the index")
         let daAlert = UIAlertController(title: "Options", message: "Please select an option", preferredStyle: .actionSheet)
         
         let edit = UIAlertAction(title: "Edit", style: .default) {_ in
@@ -35,10 +39,9 @@ class ViewController: UIViewController {
         }
         
         let delete = UIAlertAction(title: "Delete", style: .destructive) {_ in
-            print("we're removing \(sender.tag)")
-        
+            print("tag is \(sender.tag)")
         }
-    
+        
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -47,8 +50,9 @@ class ViewController: UIViewController {
         daAlert.addAction(cancel)
         present(daAlert, animated: true, completion: nil)
         
+        
+        
     }
-    
     
     @IBAction func add(_ sender: UIBarButtonItem) {
         
@@ -70,7 +74,7 @@ class ViewController: UIViewController {
             print(error)
         }
     }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
         loadJournal()
@@ -91,6 +95,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         let myPhotos = photoJournals[indexPath.row]
+        index = indexPath.row
+        print("The index is \(indexPath.row)")
         
         cell.caption.text = myPhotos.caption
         print(myPhotos.caption)
@@ -100,9 +106,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         print()
         cell.collectionImage.image = UIImage(data: myPhotos.imageData)
         
+        cell.optionButtonOutlet.tag = indexPath.row
+        
         return cell
     }
     
     
-
+    
 }

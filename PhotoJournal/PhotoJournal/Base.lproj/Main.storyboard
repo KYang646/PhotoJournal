@@ -64,7 +64,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Option"/>
                                                     <connections>
-                                                        <action selector="optionClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xbY-7A-EnS"/>
+                                                        <action selector="optionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3H7-ao-7ym"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POB-wE-gUh" userLabel="date">
@@ -91,6 +91,7 @@
                                             <outlet property="caption" destination="PqG-O6-CdT" id="Yo7-xB-rxe"/>
                                             <outlet property="collectionImage" destination="Cxe-rW-bcC" id="IUf-ep-aG6"/>
                                             <outlet property="date" destination="POB-wE-gUh" id="lAH-hB-8wV"/>
+                                            <outlet property="optionButtonOutlet" destination="Pfm-xJ-05e" id="hhF-yT-UC4"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
