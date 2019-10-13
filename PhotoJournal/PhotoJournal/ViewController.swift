@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoCollection: UICollectionView!
     
     
-    @IBAction func optionClick(_ sender: Any) {
+    @IBAction func optionClick(_ sender: UIButton) {
         let daAlert = UIAlertController(title: "Options", message: "Please select an option", preferredStyle: .actionSheet)
         
         let edit = UIAlertAction(title: "Edit", style: .default) {_ in
@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         }
         
         let delete = UIAlertAction(title: "Delete", style: .destructive) {_ in
+            print("we're removing \(sender.tag)")
         
         }
     
@@ -49,7 +50,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func add(_ sender: Any) {
+    @IBAction func add(_ sender: UIBarButtonItem) {
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         guard let VC = storyboard.instantiateViewController(identifier: "editor") as? EditorViewController
