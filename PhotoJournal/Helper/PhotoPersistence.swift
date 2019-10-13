@@ -17,17 +17,26 @@ struct PhotoPersistenceManager {
     func saveJournal(journal: Journal) throws {
         try persistenceHelper.save(newElement: journal)
     }
-
+    
     func getJournal() throws -> [Journal] {
         return try persistenceHelper.getObjects()
     }
     
     
-    func deleteJournal(withID: Int) throws {
+    func deleteJournal(index: Int) throws -> [Journal] {
         do {
-            let allJournalsBefore = try getJournal()
-            let allJournalsAfter = allJournalsBefore.filter { $0.id != withID}
-            try persistenceHelper.replace(elements: allJournalsAfter)
+            var allJournals = try getJournal()
+            //            let allJournalsAfter = allJournalsBefore.filter { $0.tag != tag}
+            allJournals.remove(at: index)
+            
+            do {
+                try persistenceHelper.replace(elements: allJournals)
+            }catch{
+                print("Not replacing")
+            }
+            
+            return allJournals
+            
         }
     }
 }

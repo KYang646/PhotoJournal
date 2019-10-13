@@ -40,6 +40,11 @@ class ViewController: UIViewController {
         
         let delete = UIAlertAction(title: "Delete", style: .destructive) {_ in
             print("tag is \(sender.tag)")
+            do{
+                self.photoJournals =  try PhotoPersistenceManager.manager.deleteJournal(index: sender.tag)
+            }catch{
+                print("Can't delete")
+            }
         }
         
         
