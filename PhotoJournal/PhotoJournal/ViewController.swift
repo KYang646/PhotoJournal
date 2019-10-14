@@ -35,6 +35,16 @@ class ViewController: UIViewController {
         let daAlert = UIAlertController(title: "Options", message: "Please select an option", preferredStyle: .actionSheet)
         
         let edit = UIAlertAction(title: "Edit", style: .default) {_ in
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+              guard let VC = storyboard.instantiateViewController(identifier: "editor") as? EditorViewController
+                  else {
+                      fatalError()
+              }
+              VC.modalPresentationStyle = .currentContext
+            
+            VC.daPhoto = self.photoJournals[sender.tag]
+            VC.index = sender.tag
+            self.present(VC, animated: true, completion: nil)
             
         }
         

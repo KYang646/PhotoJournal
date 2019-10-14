@@ -37,14 +37,22 @@ class EditorViewController: UIViewController {
                                           .withDashSeparatorInDate]
         let timeStamp = isoDateFormatter.string(from: date)
         
+        
         if let imageData = eVCImage.image?.jpegData(compressionQuality: 0.5){
 //            let newPhoto = Journal.init(imageData: imageData, caption: eVCTextView.text, timestamp: timeStamp)
             let newPhoto = Journal.init(imageData: imageData, caption: eVCTextView.text, timestamp: timeStamp, id: Journal.getIdForNewJournal())
 
+            if let _ = daPhoto{
+               try? PhotoPersistenceManager.manager.editJournal(index: index!, editedJournal: newPhoto)
+            }else{
+                try? PhotoPersistenceManager.manager.saveJournal(journal: newPhoto)
+            }
             
-            try? PhotoPersistenceManager.manager.saveJournal(journal: newPhoto)
+          
             dismiss(animated: true, completion: nil)
         }
+        
+        
         
     }
     
@@ -66,6 +74,12 @@ class EditorViewController: UIViewController {
         imagePickerController.delegate = self
         if !UIImagePickerController.isSourceTypeAvailable(.camera){
             eVCCamera.isEnabled = false
+        }
+        
+        if let chosenPhoto = daPhoto{
+            eVCImage.image = UIImage(data: chosenPhoto.imageData)
+            eVCTextView.text = chosenPhoto.caption
+            
         }
     }
 

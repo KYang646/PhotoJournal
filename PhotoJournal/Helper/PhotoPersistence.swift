@@ -39,4 +39,20 @@ struct PhotoPersistenceManager {
             
         }
     }
+    
+    func editJournal(index: Int, editedJournal: Journal) throws {
+           do {
+               var allJournals = try getJournal()
+          
+//               allJournals.remove(at: index)
+                allJournals[index] = editedJournal
+               
+               do {
+                   try persistenceHelper.replace(elements: allJournals)
+               }catch{
+                   print("Not replacing")
+               }
+               
+           }
+       }
 }
